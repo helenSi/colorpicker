@@ -1,4 +1,5 @@
 /* Exercise 2: Color picker */
+
 var colors = ["brown" ,"purple", "orange", "#091287", "green", "red" ,"blue", "yellow"];
 	random_position = Math.floor(Math.random() * colors.length);
 	
@@ -9,7 +10,6 @@ function setPreviewColor(color){
 };
 
 function addBox(color){
-
 	$("#colors").prepend("<div class ='item' style='background:" +color +"'></div>" );
 	$("#color").val("");
 };
@@ -59,9 +59,20 @@ $(document).on('click', '#add-to-favorite', function(){
 
 });
 
-// Mouse over view the color
-$(document).on('click', '.item', function(){
+
+// Mouse hover view the color
+var previewColor;
+$(document).on('mouseenter', '.item', function(){
+	previewColor = $(".preview").css("background-color");
+
 	$(".preview").css("background-color", $(this).css("background-color"));
 	$(".color-code").text($(this).css("background-color"));
+}).on('mouseleave', '.item', function(){
+	setPreviewColor(previewColor);
 });
 
+// Click view the color
+/*$(document).on('click', '.item', function(){
+	$(".preview").css("background-color", $(this).css("background-color"));
+	$(".color-code").text($(this).css("background-color"));
+});*/
