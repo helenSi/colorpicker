@@ -2,7 +2,7 @@
 
 var colors = ["brown" ,"purple", "orange", "#091287", "green", "red" ,"blue", "yellow"];
 	random_position = Math.floor(Math.random() * colors.length);
-	
+
 
 // functions' name
 function setPreviewColor(color){
@@ -35,8 +35,14 @@ $(document).ready(function(){
 	});
 });
 
+/*function forEach (array, fn) {
+	for (var i=0; i < array.length; i++) {
+		fn(i, array[i]);
+	}
+}*/
+
 // change color(left)
-$(document).on('keyup', '#color', function(){
+$(document).on('keyup keypress change', '#color', function(){
 	var color = $("input#color").val();
 
 	setPreviewColor(color);
